@@ -8,7 +8,7 @@ namespace GuessANumber
 {
     class GUI
     {
-        public static bool HighLowOrWin(int input, int number)
+        public static bool HighLowOrWin(int input, int number, string name, int guesses)
         {
             if(input > number)
             {
@@ -22,22 +22,12 @@ namespace GuessANumber
             }
             else
             {
-                Console.WriteLine($"Tillykke {Spiller.Name}, det er rigtigt!\nDu brugte {Spiller.NumberOfGuesses} forsøg!");
+                Console.WriteLine($"Tillykke {name}, det er rigtigt!\nDu brugte {guesses} forsøg!");
                 return true;
             }
         }
-        public static void MakeAGuess()
-        {
-            Spiller.Guess(GetIntFromUser("Lav et gæt: "));
-        }
-        public static void GetName()
-        {
-            Spiller.GetName(GetStringFromUser("Skriv dit navn")) ;
-        }
-        public static void GetDiceSize()
-        {
-            Dice.ChooseDiceSize(GetIntFromUser("Hvor mange sider skal terningen have ?"));
-        }
+        
+        
         public static bool Restart()
         {
             if (GetStringFromUser("Tast y for at prøve igen.") == "y")
@@ -49,14 +39,14 @@ namespace GuessANumber
         }
         public static int GetIntFromUser(string message)
         {
-            Console.Write(message);
+            Console.WriteLine(message);
             int.TryParse(Console.ReadLine(), out int input);
             return input;
         }
 
         public static string GetStringFromUser(string message)
         {
-            Console.Write(message);
+            Console.WriteLine(message);
             return Console.ReadLine();
         }
     }

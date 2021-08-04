@@ -12,8 +12,8 @@ namespace GuessANumber
         public static bool GuessedRight;
         public static void StartGame()
         {
-            GUI.GetName();
-            GUI.GetDiceSize();
+            Spiller.Name = GUI.GetStringFromUser("Skriv dit navn");
+            Dice.ChooseDiceSize(GUI.GetIntFromUser("Hvor mange sider skal terningen have?"));
             Game();
         }
 
@@ -22,8 +22,8 @@ namespace GuessANumber
             GuessTheNumber = Dice.RollDice();
             while (GuessedRight == false)
             {
-                GUI.MakeAGuess();
-                GuessedRight = GUI.HighLowOrWin(Spiller.PlayerGuess, GuessTheNumber);
+                Spiller.Guess(GUI.GetIntFromUser("Lav et gæt: "));
+                GuessedRight = GUI.HighLowOrWin(Spiller.PlayerGuess, GuessTheNumber, Spiller.Name, Spiller.NumberOfGuesses);
             }
             Restart();
         }
@@ -32,7 +32,7 @@ namespace GuessANumber
             if (GUI.Restart())
             {
                 Spiller.NumberOfGuesses = 0;
-                GUI.GetDiceSize();
+                Dice.ChooseDiceSize(GUI.GetIntFromUser("Hvor mange sider skal terningen have?"));
                 GuessedRight = false;
                 Game();
                 
