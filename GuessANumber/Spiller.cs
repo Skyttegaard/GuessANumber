@@ -10,6 +10,7 @@ namespace GuessANumber
     {
         public static int PlayerGuess = 0;
         public static string Name;
+        public static int NumberOfGuesses = 0;
         
         public static void GetName()
         {
@@ -18,7 +19,7 @@ namespace GuessANumber
         public static void Guess()
         {
             int.TryParse(Console.ReadLine(), out PlayerGuess);
-            
+            NumberOfGuesses++;
         }        
     }
 }

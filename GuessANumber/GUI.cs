@@ -22,7 +22,7 @@ namespace GuessANumber
             }
             else
             {
-                Console.WriteLine($"Tillykke {Spiller.Name}, det er rigtigt!");
+                Console.WriteLine($"Tillykke {Spiller.Name}, det er rigtigt!\nDu brugte {Spiller.NumberOfGuesses} forsøg!");
                 return true;
             }
         }

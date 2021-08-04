@@ -31,6 +31,7 @@ namespace GuessANumber
         {
             if (GUI.Restart())
             {
+                Spiller.NumberOfGuesses = 0;
                 GUI.GetDiceSize();
                 GuessedRight = false;
                 Game();
