@@ -28,28 +28,36 @@ namespace GuessANumber
         }
         public static void MakeAGuess()
         {
-            Console.Write("Lav et gæt: ");
-            Spiller.Guess();
+            Spiller.Guess(GetIntFromUser("Lav et gæt: "));
         }
         public static void GetName()
         {
-            Console.WriteLine("Skriv dit navn");
-            Spiller.GetName();
+            Spiller.GetName(GetStringFromUser("Skriv dit navn")) ;
         }
         public static void GetDiceSize()
         {
-            Console.WriteLine("Hvor mange sider skal terningen have?");
-            Dice.ChooseDiceSize();
+            Dice.ChooseDiceSize(GetIntFromUser("Hvor mange sider skal terningen have ?"));
         }
         public static bool Restart()
         {
-            Console.WriteLine("Tast y for at prøve igen.");
-            if (Console.ReadLine() == "y")
+            if (GetStringFromUser("Tast y for at prøve igen.") == "y")
             {
                 Console.Clear();
                 return true;
             }
             return false;
+        }
+        public static int GetIntFromUser(string message)
+        {
+            Console.Write(message);
+            int.TryParse(Console.ReadLine(), out int input);
+            return input;
+        }
+
+        public static string GetStringFromUser(string message)
+        {
+            Console.Write(message);
+            return Console.ReadLine();
         }
     }
 }

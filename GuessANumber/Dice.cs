@@ -14,9 +14,9 @@ namespace GuessANumber
             Random rnd = new Random();
             return rnd.Next(Sides) + 1;
         }
-        public static void ChooseDiceSize()
+        public static void ChooseDiceSize(int input)
         {
-            int.TryParse(Console.ReadLine(), out Sides);
+            Sides = input;
         }
     }
 }

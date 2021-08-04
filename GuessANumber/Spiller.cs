@@ -12,13 +12,13 @@ namespace GuessANumber
         public static string Name;
         public static int NumberOfGuesses = 0;
         
-        public static void GetName()
+        public static void GetName(string input)
         {
-            Name = Console.ReadLine();
+            Name = input;
         }
-        public static void Guess()
+        public static void Guess(int input)
         {
-            int.TryParse(Console.ReadLine(), out PlayerGuess);
+            PlayerGuess = input;
             NumberOfGuesses++;
         }        
     }
